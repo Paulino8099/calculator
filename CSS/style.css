@@ -472,7 +472,6 @@ body .calculator .content-calculator .container-colors.active {
 }
 
 body .calculator .content-calculator .container-colors.active span {
-  position: relative;
   -webkit-transform: translateY(0);
           transform: translateY(0);
   opacity: 1;
@@ -489,7 +488,7 @@ body .calculator .content-calculator .container-colors span {
   width: 20px;
   height: 20px;
   z-index: 100;
-  position: absolute;
+  position: relative;
   -webkit-transform: translateY(-25px);
           transform: translateY(-25px);
   border-radius: 50%;
@@ -519,7 +518,7 @@ body .calculator .content-calculator .ca {
 
 @media screen and (max-width: 800px) {
   body .calculator .content-calculator {
-    width: 80%;
+    width: 90%;
     height: 80%;
   }
   body .calculator .content-calculator .btns {
