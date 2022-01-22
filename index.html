@@ -12,10 +12,16 @@
 
 <body>
     <div class="calculator">
+        <h1 class="title-app">Calculator-D</h1>
         <div class="content-calculator">
-            <!-- display -->
-            <label>
-                <input class="input-calculator" type="text">
+            <label class="input-container">
+                <!-- display 1 -->
+                <input class="input-value-calculator" type="text" value="">
+                <!-- display 2 -->
+                <input class="input-result-calculator" type="text" value="" readonly onmousedown="return false;">
+                <!-- display 3 -->
+                <input class="input-equal-calculator" type="text" value="" readonly>
+                <span class="clean"></span>
             </label>
 
             <!-- bottons -->
@@ -94,7 +100,7 @@
                 <span class="MediumSpringGreen" style="--i:3; background: #00fa9a;"></span>
                 <span class="LightSeaGreen" style="--i:4; background: #20b2aa;"></span>
                 <span class="Yellow" style="--i:5; background: #fafa41"></span>
-                <span class="Chocolate" style="--i:6; background: #d2691e;"></span>
+                <span class="DarkGray" style="--i:6; background: #909090;"></span>
                 <span class="DarkSlateGray" style="--i:7; background: #305050;"></span>
                 <span class="Crimson" style="--i:8; background: #dc143c;"></span>
                 <span class="DeepPink" style="--i:9; background: #ff1493;"></span>

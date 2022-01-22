@@ -1,7 +1,6 @@
 :root {
-	--color_darkGray: #cfcfcf;
 	--color_darkGreen: #d0e6e4;
-	--color_green: #3b9071;
+	--color_darkGray: #909090;
 	--color_white: #ffffff;
 	--color_black: #000000;
 	--color_darkBlack: #474747;
@@ -15,6 +14,7 @@
 	&::selection {
 		background: #00808080;
 	}
+	-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 button {
 	outline: none;
@@ -26,8 +26,19 @@ svg {
 }
 
 body {
-	background: var(--color_green);
+	background: var(--color_darkGray);
 	transition: .5s ease;
+	.title-app {
+		color: #ffffff;
+		font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana,
+			sans-serif;
+		font-size: 1.5rem;
+		justify-self: center;
+		text-align: center;
+		top: 0;
+		height: min-content;
+		position: absolute;
+	}
 	.calculator {
 		width: 100%;
 		height: 100vh;
@@ -37,9 +48,9 @@ body {
 		.content-calculator {
 			border-radius: 15px;
 			width: 40%;
-			height: 80%;
+			height: 85%;
 			place-self: center;
-			background: var(--color_green);
+			background: var(--color_darkGray);
 			box-shadow: 0 0 10px #ffffff40, inset 0 5px 5px #00000040, inset 0 -5px 5px #00000040;
 			padding: 10px;
 			position: relative;
@@ -51,43 +62,20 @@ body {
 			// display
 			label {
 				width: 95%;
-				height: 100%;
+				height: 90%;
 				place-self: center;
 				background: var(--color_darkGreen);
 				border-radius: 10px;
 				overflow: hidden;
 				box-shadow: 0 0 0 2px var(--color_darkBlack);
+				position: relative;
 
 				display: flex;
+				flex-direction: column-reverse;
 				grid-column: 1/7;
 				grid-row: 1/3;
-				svg {
-					transition: .3s;
-					cursor: pointer;
-					width: 40px;
-					fill: var(--color_darkBlack);
-					&:hover {
-						fill: #ff0000;
-						transform: scale(1.1);
-					}
-					&:active {
-						transition: .1s;
-						fill: var(--color_darkBlack);
-						transform: scale(1.0);
-					}
-				}
-				hr {
-					outline: none;
-					border: none;
-					background: var(--color_darkBlack);
-					opacity: .5;
-					height: 90%;
-					width: 2px;
-					align-self: center;
-					border-radius: 50%;
-				}
 				input {
-					font-size: 2.5rem;
+					font-size: calc(1.5em + 1vw);
 					font-weight: 900;
 					color: var(--color_darkBlack);
 					background: var(--color_darkGreen);
@@ -101,10 +89,68 @@ body {
 					margin-left: 5px;
 					&:focus {
 						border: none;
-						outline: 1px solid #00000040;
+						outline: none;
+					}
+				}
+				.input-result-calculator {
+					pointer-events: none;
+					font-size: calc(.5em + 1vw);
+				}
+				.input-equal-calculator {
+					position: absolute;
+					width: 0%;
+					height: 0%;
+					place-self: flex-end;
+					margin: 0;
+					pointer-events: none;
+					&.active {
+						transition: .2s;
+						width: 100%;
+						height: 100%;
+						padding-right: 10px;
+
+						animation: cambio .5s ease-in-out;
+						@keyframes cambio {
+							// transición de colores al activar pantalla de resultados
+							0% {
+								background: #1e504c;
+							}
+							100% {
+								background: #d0e6e4;
+							}
+						}
+					}
+				}
+				.clean {
+					position: absolute;
+					background: #505050;
+					width: 100%;
+					height: 100%;
+					right: -100%;
+					border-top-left-radius: 25px;
+					border-top-right-radius: 25px;
+					border-bottom-left-radius: 25px;
+					animation: none;
+
+					display: none;
+					&.active {
+						animation: clean 1s ease-in-out;
+
+						display: block;
+					}
+					@keyframes clean {
+						50% {
+							right: 100%;
+							background: #868585;
+						}
+						100% {
+							right: 100%;
+							background: #505050;
+						}
 					}
 				}
 			}
+			// Bottons
 			.btns {
 				place-self: center;
 				width: 95%;
@@ -141,11 +187,15 @@ body {
 						height: 80%;
 						place-self: center;
 					}
+					&:focus {
+						outline-color: transparent;
+						outline-style: none;
+					}
 					h3 {
 						font-weight: 900;
 						z-index: 10;
 						color: var(--color_white);
-						font-size: 2.5rem;
+						font-size: calc(1em + 1vw);
 					}
 					svg {
 						z-index: 10;
@@ -281,277 +331,26 @@ body {
 				}
 			}
 			.ca {
-				color: var(--color_darkGray);
+				color: var(--color_darkBlack);
 				position: absolute;
 				right: 8px;
 				bottom: 8px;
 				font-size: 1rem;
+				color: #909090;
 			}
 		}
 	}
 }
 
-@media screen and (max-width: 650px) {
+@media screen and (max-width: 800px) {
 	body {
-		background: var(--color_green);
-		transition: .5s ease;
 		.calculator {
-			width: 100%;
-			height: 100vh;
-			place-self: center;
-	
-			display: grid;
 			.content-calculator {
-				border-radius: 15px;
-				width: 90%;
+				width: 80%;
 				height: 80%;
-				place-self: center;
-				background: var(--color_green);
-				box-shadow: 0 0 10px #ffffff40, inset 0 5px 5px #00000040, inset 0 -5px 5px #00000040;
-				padding: 10px;
-				position: relative;
-				transition: .5s ease;
-	
-				display: grid;
-				grid-template-columns: repeat(6, auto);
-				grid-template-rows: repeat(6, auto);
-				// display
-				label {
-					width: 95%;
-					height: min-content;
-					place-self: center;
-					background: var(--color_darkGreen);
-					border-radius: 10px;
-					box-shadow: 0 0 0 2px var(--color_darkBlack);
-	
-					display: flex;
-					grid-column: 1/7;
-					grid-row: 1/3;
-					svg {
-						transition: .3s;
-						cursor: pointer;
-						width: 40px;
-						fill: var(--color_darkBlack);
-						&:hover {
-							fill: #ff0000;
-							transform: scale(1.1);
-						}
-						&:active {
-							transition: .1s;
-							fill: var(--color_darkBlack);
-							transform: scale(1.0);
-						}
-					}
-					hr {
-						outline: none;
-						border: none;
-						background: var(--color_darkBlack);
-						opacity: .5;
-						height: 90%;
-						width: 2px;
-						align-self: center;
-						border-radius: 50%;
-					}
-					input {
-						font-size: 2.5rem;
-						font-weight: 900;
-						color: var(--color_darkBlack);
-						background: var(--color_darkGreen);
-						text-align: end;
-						border: none;
-						width: 95%;
-						height: 90%;
-						place-self: center;
-						border-radius: 10px;
-						margin-right: 5px;
-						margin-left: 5px;
-						&:focus {
-							border: none;
-							outline: 1px solid #00000040;
-						}
-					}
-				}
 				.btns {
-					place-self: center;
 					width: 95%;
-					height: 95%;
-					gap: 10px;
-	
-					display: grid;
-					grid-column: 1/7;
-					grid-row: 3/7;
-					grid-template-columns: repeat(4, 1fr);
-					grid-template-rows: repeat(6, auto);
-					span {
-						width: 100%;
-						border-radius: 50px;
-						box-shadow: 0 5px 5px #00000040, inset 0 -5px 5px #ffffff40, inset 0 5px 5px #00000040,
-							inset -5px 0 5px #00000040, inset 5px 0 5px #00000040;
-						place-items: center;
-						position: relative;
-						transition: .3s;
-						cursor: pointer;
-	
-						display: grid;
-						&:active {
-							transform: translateY(3px);
-							transition: .1s;
-							box-shadow: 0 3px 5px #00000040, inset 0 -5px 5px #ffffff40, inset 0 5px 5px #00000040,
-								inset -5px 0 5px #00000040, inset 5px 0 5px #00000040;
-						}
-						&::before {
-							content: "";
-							border-radius: 50px;
-							position: absolute;
-							backdrop-filter: blur(5px);
-							width: 80%;
-							height: 80%;
-							place-self: center;
-						}
-						h3 {
-							z-index: 10;
-							color: var(--color_white);
-							font-size: 2.5rem;
-						}
-						svg {
-							z-index: 10;
-							fill: var(--color_white);
-						}
-					}
-					// first row
-					.btn-delete-all {
-						grid-column: 1/3;
-						grid-row: 1/2;
-					}
-					.btn-delete {
-						grid-column: 3/4;
-						grid-row: 1/2;
-					}
-					.btn-porcentage {
-						grid-column: 4/5;
-						grid-row: 1/2;
-					}
-					// second row
-					.btn-seven {
-						grid-column: 1/2;
-						grid-row: 2/3;
-					}
-					.btn-height {
-						grid-column: 2/3;
-						grid-row: 2/3;
-					}
-					.btn-nine {
-						grid-column: 3/4;
-						grid-row: 2/3;
-					}
-					.btn-multiply {
-						grid-column: 4/5;
-						grid-row: 2/3;
-					}
-					// third row
-					.btn-four {
-						grid-column: 1/2;
-						grid-row: 3/4;
-					}
-					.btn-five {
-						grid-column: 2/3;
-						grid-row: 3/4;
-					}
-					.btn-six {
-						grid-column: 3/4;
-						grid-row: 3/4;
-					}
-					.btn-divide {
-						grid-column: 4/5;
-						grid-row: 3/4;
-					}
-					// quarter row
-					.btn-one {
-						grid-column: 1/2;
-						grid-row: 4/5;
-					}
-					.btn-two {
-						grid-column: 2/3;
-						grid-row: 4/5;
-					}
-					.btn-three {
-						grid-column: 3/4;
-						grid-row: 4/5;
-					}
-					.btn-minus {
-						grid-column: 4/5;
-						grid-row: 4/5;
-					}
-					// fifth row
-					.btn-zero {
-						grid-column: 1/3;
-						grid-row: 5/6;
-					}
-					.btn-equal {
-						grid-column: 3/4;
-						grid-row: 5/6;
-					}
-					.btn-more {
-						grid-column: 4/5;
-						grid-row: 5/6;
-					}
-				}
-				// container color
-				.container-colors {
-					width: 25px;
-					height: 25px;
-					border-radius: 50px;
-					position: absolute;
-					outline: 2px solid var(--color_white);
-					z-index: 50;
-					bottom: 10px;
-					cursor: pointer;
-					justify-content: space-evenly;
-					justify-self: center;
-					transition: .3s ease;
-					gap: 3px;
-	
-					display: flex;
-					&.active {
-						transition: .5s ease;
-						width: 90%;
-						backdrop-filter: blur(5px);
-						box-shadow: inset 0 5px 5px #00000040, inset 0 -5px 5px #00000040, 0 5px 5px #00000040,
-							0 -5px 5px #00000040;
-						span {
-							position: relative;
-							transform: translateY(0);
-							opacity: 1;
-							pointer-events: visible;
-							box-shadow: inset 0 5px 5px #00000040, inset 0 -5px 5px #00000040, 0 5px 5px #00000040,
-								0 -5px 5px #00000040;
-							transition: all 1s ease;
-						}
-					}
-					span {
-						transition: all 2s ease-in, all .3s ease-out;
-						width: 20px;
-						height: 20px;
-						z-index: 100;
-						position: absolute;
-						transform: translateY(-25px);
-						border-radius: 50%;
-						align-self: center;
-						cursor: pointer;
-						opacity: 0;
-						pointer-events: none;
-						&:hover {
-							transition: .3s;
-							transform: scale(1.1) translateY(-5px);
-						}
-					}
-				}
-				.ca {
-					color: var(--color_darkGray);
-					position: absolute;
-					right: 8px;
-					bottom: 8px;
-					font-size: 1rem;
+					height: 90%;
 				}
 			}
 		}
