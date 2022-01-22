@@ -154,6 +154,7 @@ body {
 			.btns {
 				place-self: center;
 				width: 95%;
+				height: 100%;
 				gap: 10px;
 
 				display: grid;
@@ -347,6 +348,10 @@ body {
 			.content-calculator {
 				width: 90%;
 				height: 80%;
+			// display
+			label {
+
+			}
 				.btns {
 					width: 95%;
 					height: 90%;

@@ -212,6 +212,7 @@ body .calculator .content-calculator label .clean.active {
 body .calculator .content-calculator .btns {
   place-self: center;
   width: 95%;
+  height: 100%;
   gap: 10px;
   display: -ms-grid;
   display: grid;
