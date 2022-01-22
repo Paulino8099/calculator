@@ -71,7 +71,7 @@ function separateNumber() {
         inputResult.value = eatNumber;
     }
     /**
-    * !1,000,000 hasta 9,999,999 
+    * !1,000,000 hasta 9,999,999  
     */
     // si los dígitos escritos llegan a tener mas de 3 dígitos se le añadira una coma (,) después del primer dígito de izquierda a derecha
     else if (inputResult.value.length == 7) {
