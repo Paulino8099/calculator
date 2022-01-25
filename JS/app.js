@@ -280,7 +280,7 @@ function setOperators() {
         btnMultiply.addEventListener('click', () => {
             inputValue.value = inputValue.value + '*';
 
-            navigator.vibrate[1000];
+            navigator.vibrate(1000);
         });
     };
 
