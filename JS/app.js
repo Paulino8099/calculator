@@ -1,5 +1,4 @@
 
-
 /**
  * ?inputs de la calculadora
  */
@@ -40,8 +39,7 @@ let btnDeleteAll = document.querySelector('.btn-delete-all');
 /**
  * ?separando los números mil, millón, billón, trillón, cuatrillón
  */
-// funnción para separar los números de acuerdo a su tamaño ejemplo: mil, dos mil, un millón, dos millones.
-separateNumber();
+// funnción para separar los números con una coma de acuerdo a su longitud de tamaño ejemplo: mil, dos mil, un millón, dos millones.
 function separateNumber() {
     /**
     * !1,000 hasta 9,999
@@ -53,7 +51,7 @@ function separateNumber() {
         inputResult.value = eatNumber;
     }
     /**
-    * !10,000 hasta 99,999
+    * !10,000 hasta 99,999 (100 millones a 1 millón menos 1)https://us04web.zoom.us/j/5973801957?pwd=ZytBOHFwUXlTTXQwa1NDY3daZWw5dz09
     */
     // si los dígitos escritos llegan a tener mas de 3 dígitos se le añadira una coma (,) después del primer dígito de izquierda a derecha
     else if (inputResult.value.length == 5) {
@@ -62,7 +60,7 @@ function separateNumber() {
         inputResult.value = eatNumber;
     }
     /**
-    * !100,000 hasta 999,999
+    * !100,000 hasta 999,999 (100 mil a 1 millón menos 1)
     */
     // si los dígitos escritos llegan a tener mas de 3 dígitos se le añadira una coma (,) después del primer dígito de izquierda a derecha
     else if (inputResult.value.length == 6) {
@@ -71,7 +69,7 @@ function separateNumber() {
         inputResult.value = eatNumber;
     }
     /**
-    * !1,000,000 hasta 9,999,999  
+    * !1,000,000 hasta 9,999,999 (1 millón a 10 millones menos 1)
     */
     // si los dígitos escritos llegan a tener mas de 3 dígitos se le añadira una coma (,) después del primer dígito de izquierda a derecha
     else if (inputResult.value.length == 7) {
@@ -79,10 +77,89 @@ function separateNumber() {
 
         inputResult.value = eatNumber;
     }
+    /**
+    * !10,000,000 hasta 99,999,999 (10 millones a 100 millones menos 1)
+    */
+    // si los dígitos escritos llegan a tener mas de 3 dígitos se le añadira una coma (,) después del primer dígito de izquierda a derecha
+    else if (inputResult.value.length == 8) {
+        let eatNumber = `${inputResult.value.slice(0, 2)},${inputResult.value.slice(2, 5)},${inputResult.value.slice(5)}`;
+
+        inputResult.value = eatNumber;
+    }
+    /**
+    * !100,000,000 hasta 999,999,999 (100 millones a 1 millón menos 1)
+    */
+    // si los dígitos escritos llegan a tener mas de 3 dígitos se le añadira una coma (,) después del primer dígito de izquierda a derecha
+    else if (inputResult.value.length == 9) {
+        let eatNumber = `${inputResult.value.slice(0, 3)},${inputResult.value.slice(3, 6)},${inputResult.value.slice(6)}`;
+
+        inputResult.value = eatNumber;
+    }
+    /**
+    * !1,000,000,000 hasta 9,999,999,999 (1 billón a 10 billones menos 1 )
+    */
+    // si los dígitos escritos llegan a tener mas de 3 dígitos se le añadira una coma (,) después del primer dígito de izquierda a derecha
+    else if (inputResult.value.length == 10) {
+        let eatNumber = `${inputResult.value.slice(0, 1)},${inputResult.value.slice(1, 4)},${inputResult.value.slice(4, 7)},${inputResult.value.slice(7)}`;
+
+        inputResult.value = eatNumber;
+    }
+    /**
+    * !10,000,000,000 hasta 99,999,999,999 (10 billones a 100 billones menos 1 )
+    */
+    // si los dígitos escritos llegan a tener mas de 3 dígitos se le añadira una coma (,) después del primer dígito de izquierda a derecha
+    else if (inputResult.value.length == 11) {
+        let eatNumber = `${inputResult.value.slice(0, 2)},${inputResult.value.slice(2, 5)},${inputResult.value.slice(5, 8)},${inputResult.value.slice(8)}`;
+
+        inputResult.value = eatNumber;
+    }
+    /**
+    * !100,000,000,000 hasta 999,999,999,999 (100 billón a 1 trillón menos 1 )
+    */
+    // si los dígitos escritos llegan a tener mas de 3 dígitos se le añadira una coma (,) después del primer dígito de izquierda a derecha
+    else if (inputResult.value.length == 12) {
+        let eatNumber = `${inputResult.value.slice(0, 3)},${inputResult.value.slice(3, 6)},${inputResult.value.slice(6, 9)},${inputResult.value.slice(9)}`;
+
+        inputResult.value = eatNumber;
+    }
+    /**
+    * !1,000,000,000,000 hasta 9,999,999,999 (1 trillón a 10 trillones menos 1 )  
+    */
+    // si los dígitos escritos llegan a tener mas de 3 dígitos se le añadira una coma (,) después del primer dígito de izquierda a derecha
+    else if (inputResult.value.length == 13) {
+        let eatNumber = `${inputResult.value.slice(0, 1)},${inputResult.value.slice(1, 4)},${inputResult.value.slice(4, 7)},${inputResult.value.slice(7, 10)},${inputResult.value.slice(10)}`;
+
+        inputResult.value = eatNumber;
+    }
+    /**
+    * !10,000,000,000,000 hasta 99,999,999,999 (10 trillones a 100 trillones menos 1) 
+    */
+    // si los dígitos escritos llegan a tener mas de 3 dígitos se le añadira una coma (,) después del primer dígito de izquierda a derecha
+    else if (inputResult.value.length == 14) {
+        let eatNumber = `${inputResult.value.slice(0, 2)},${inputResult.value.slice(2, 5)},${inputResult.value.slice(5, 8)},${inputResult.value.slice(8, 11)},${inputResult.value.slice(11)}`;
+
+        inputResult.value = eatNumber;
+    }
+    /**
+    * !100,000,000,000,000 hasta 999,999,999,999 (100 trillones a 1000 trillones menos 1) 
+    */
+    // si los dígitos escritos llegan a tener mas de 3 dígitos se le añadira una coma (,) después del primer dígito de izquierda a derecha
+    else if (inputResult.value.length == 15) {
+        let eatNumber = `${inputResult.value.slice(0, 3)},${inputResult.value.slice(3, 6)},${inputResult.value.slice(6, 9)},${inputResult.value.slice(9, 12)},${inputResult.value.slice(12)}`;
+
+        inputResult.value = eatNumber;
+    }
 };
 
 /**
- *? añadiendo todos los números a la entrada de texto
+ * ?limite de operadores...
+ */
+// función para limitar el número de operadores para que así no se repita mas de 2 o de tres operadores en una misma secuencia ejemplo: ++,--,***,///
+function limitOpertators() {
+    inputValue.value.replace('***', '*');
+};
+/**
+ *? añadiendo números...
  */
 // función para añadir todos los números a la entrada de valores 
 setNumbers();
@@ -190,7 +267,7 @@ function setNumbers() {
 };
 
 /**
- * ?añadiendo los operadores a la entrada de texto "inputValue"
+ * ?añadiendo operadores...
  */
 setOperators();
 function setOperators() {
@@ -203,7 +280,7 @@ function setOperators() {
         btnMultiply.addEventListener('click', () => {
             inputValue.value = inputValue.value + '*';
         });
-    }
+    };
 
     /**
      * !añadiendo %
@@ -214,7 +291,7 @@ function setOperators() {
         btnPorcentage.addEventListener('click', () => {
             inputValue.value = inputValue.value + '%';
         });
-    }
+    };
 
     /**
      * !añadiendo /
@@ -225,7 +302,7 @@ function setOperators() {
         btnDivide.addEventListener('click', () => {
             inputValue.value = inputValue.value + '/';
         });
-    }
+    };
 
     /**
      * !añadiendo -
@@ -236,7 +313,7 @@ function setOperators() {
         btnMinus.addEventListener('click', () => {
             inputValue.value = inputValue.value + '-';
         });
-    }
+    };
 
     /**
      * !añadiendo +
@@ -247,64 +324,99 @@ function setOperators() {
         btnMore.addEventListener('click', () => {
             inputValue.value = inputValue.value + '+';
         });
-    }
+    };
 };
 
 /**
- * ?calculando operaciones
+ * ?calculando operaciones...
  */
+// mostrando resultados de las operaciones aritméticas en el input "inputResult" al presionar cualquier btn exepto los btns "igual", borrar el último dígito y el de lipiar toda la pantalla 
 setResult();
 function setResult() {
-    let allBtns = document.querySelector('.btns').children;
+    // creando lista con todos los botones exepto los btns igual, borrar y limpiar pantalla
+    let allBtns = document.querySelectorAll('.btn');
 
-    // mostrando resultado en el input "inputResult" al dar click en cualquier btn
-    for (let i = 0; i < allBtns.length; i++) {
-        allBtns[i].addEventListener('click', function () {
+    // mostrando resultado en el input "inputResult" al dar click en cualquier btn exepto en el btn de igualdad, btn de borrar un dígito y btn de limpiar la pantalla
+    allBtns.forEach((allBtns1) => {
+        allBtns1.addEventListener('click', function () {
+            // sentencia if para obligar a que el input de entrada de valores tenga que estar con algún tipo de dato para que no de ningún error al hacer cálculos
             if (inputValue.value != '') {
                 inputResult.value = eval(inputValue.value);
 
-                separateNumber();
-            }
-        });
-    }
-};
+                // // si hay puntos decimales se va a escoger solor 2 de ellos y el resto se eliminará
+                // if (inputResult.value.includes('.')) {
+                //     inputResult.value.substring(-1, -13);
+                // };
+            };
 
-/**
- * ?resultado de la operación en grande
- */
-resultBig();
-function resultBig() {
-    btnEqual.addEventListener('click', function () {
-        if (inputResult.value != '') {
-            // activando el input de igualdad "inputEqual"
-            inputEqual.classList.add('active');
-            // añadiendo resultados de la operación al input "inputEqual" (solo si hay valores)
-            inputEqual.value = inputResult.value;
-        }
+            // si la pantalla que muestra el resultado final de las operaciones está activa, se desactivará
+            if (localStorage.getItem('equal') == 1) {
+                // desactivando el input "inputEqual" que muestra el resultado en grande
+                inputEqual.classList.remove('active');
+
+                localStorage.setItem('equal', 0);
+            };
+
+            separateNumber();
+        });
     });
 };
 
 /**
- * ?borrando el último dígito escrito de la entrada de texto
+ * ?mostrando: resultado de la operación en grande...
+ */
+// mostrando resultados de la operación en grande (solo si hay valores escritos) y borrando "inputResult" y "inputValue"
+resultBig();
+function resultBig() {
+    btnEqual.addEventListener('click', function () {
+        if (inputResult.value != '') {
+            // dándole una transición diferente
+            inputEqual.style.transition = 'height .3s, width .5s';
+            // activando el input de igualdad "inputEqual"
+            inputEqual.classList.add('active');
+            // añadiendo resultados de la operación al input "inputEqual" (solo si hay valores)
+            inputEqual.value = inputResult.value;
+
+            // limpiando todo lo que hay en los inputs luego de medio segundo transcurrido
+            setTimeout(() => {
+                inputValue.value = '';
+                inputResult.value = '';
+            }, 200);
+
+            localStorage.setItem('equal', 1);
+        };
+    });
+};
+
+/**
+ * ?borrando último dígito...
  */
 // borrando el último dígito de la entrada de texto
 deleteOne();
 function deleteOne() {
     btnDelete.addEventListener('click', () => {
         // eliminando el último caracter de la cadena de texto
-        let del = inputValue.value.substring(0, inputValue.value.length - 1)
+        let del = inputValue.value.substring(0, inputValue.value.length - 1);
 
         if (inputValue.value == "NaN") {
             inputValue.value = '';
         }
         if (inputValue.value != '' && inputValue.value != 'NaN') {
             inputValue.value = del;
-        }
+        };
+        // sentencia if para obligar a que el input de entrada de valores tenga que estar con algún tipo de dato para que no de ningún error al hacer cálculos
+        if (inputValue.value != '') {
+            inputResult.value = eval(inputValue.value);
+        };
+        // si no hay valores en el "inputValue" el "inputResult" se limpiará 
+        if (inputValue.value == '') {
+            inputResult.value = '';
+        };
     });
 }
 
 /**
- * ?limpiador de input superficial
+ * ?limpiador de input superficial...
  */
 function cleanMagic() {
     let clean = document.querySelector('.clean');
@@ -312,15 +424,12 @@ function cleanMagic() {
 
     // eliminando clase luego de 1 segundo transcurrido
     setTimeout(function () {
-        let clean = document.querySelector('.clean');
         clean.classList.remove('active');
-    }, 1000)
+    }, 1000);
 };
 
-
-
 /**
- * ?borrando todo de las entradas de texto
+ * ?cleaning screen...
  */
 // función para borrar todo de la entrada de texto
 deleteAll();
@@ -330,12 +439,14 @@ function deleteAll() {
         setTimeout(() => {
             inputValue.value = '';
             inputResult.value = '';
-        }, 200);
+        }, 500);
 
-        // desactivando el input "inputEqual" que muestra el resultado en grande luego de haber transcurrido 
         setTimeout(() => {
+            // dándole una transición de cero al "inputEqual"
+            inputEqual.style.transition = '0s';
+            // desactivando el input "inputEqual" que muestra el resultado en grande luego de haber transcurrido 2ms
             inputEqual.classList.remove('active');
-        }, 200);
+        }, 500);
 
         cleanMagic();
     });
