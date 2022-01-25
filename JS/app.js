@@ -279,6 +279,8 @@ function setOperators() {
         // cada vez que se escuche un evento en el btn de multiplicar se ejecutará lo siguiente...
         btnMultiply.addEventListener('click', () => {
             inputValue.value = inputValue.value + '*';
+
+            navigator.vibrate[1000];
         });
     };
 
