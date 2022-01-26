@@ -453,6 +453,25 @@ function deleteOne() {
         if (inputValue.value == '') {
             inputResult.value = '';
         };
+        // si la pantalla que muestra los resultados está activa, remover al presionar este btn 
+        if (localStorage.getItem('equal') == 1) {
+            // limpiando todo lo que hay en los inputs luego de medio segundo transcurrido
+            setTimeout(() => {
+                inputValue.value = '';
+                inputResult.value = '';
+            }, 500);
+
+            // desactivando la pantalla del "inputEqual"
+            setTimeout(() => {
+                // dándole una transición de cero al "inputEqual"
+                inputEqual.style.transition = '0s';
+                // desactivando el input "inputEqual" que muestra el resultado en grande luego de haber transcurrido 2ms
+                inputEqual.classList.remove('active');
+            }, 500);
+
+
+            cleanMagic();
+        }
     });
 }
 
@@ -472,26 +491,29 @@ function cleanMagic() {
 /**
  * ?cleaning screen...
  */
-// función para borrar todo de la entrada de texto
+// función para borrar todo de las entradas de texto
 deleteAll();
 function deleteAll() {
     btnDeleteAll.addEventListener('click', () => {
-        // limpiando todo lo que hay en los inputs luego de medio segundo transcurrido
-        setTimeout(() => {
-            inputValue.value = '';
-            inputResult.value = '';
-        }, 500);
+        if (inputValue.value != '' || inputEqual.value != '') {
+            // limpiando todo lo que hay en los inputs luego de medio segundo transcurrido
+            setTimeout(() => {
+                inputValue.value = '';
+                inputResult.value = '';
+            }, 500);
 
-        setTimeout(() => {
-            // dándole una transición de cero al "inputEqual"
-            inputEqual.style.transition = '0s';
-            // desactivando el input "inputEqual" que muestra el resultado en grande luego de haber transcurrido 2ms
-            inputEqual.classList.remove('active');
-        }, 500);
+            // desactivando la pantalla del "inputEqual"
+            setTimeout(() => {
+                // dándole una transición de cero al "inputEqual"
+                inputEqual.style.transition = '0s';
+                // desactivando el input "inputEqual" que muestra el resultado en grande luego de haber transcurrido 2ms
+                inputEqual.classList.remove('active');
+            }, 500);
 
-        cleanMagic();
+            cleanMagic();
+        };
     });
-}
+};
 
 // ========================================================================================================
 
@@ -722,6 +744,6 @@ function btnVibrate() {
  */
 function vibration() {
     if (localStorage.getItem('vibration') == 1) {
-        navigator.vibrate(50);
+        window.navigator.vibrate(25);
     };
 };
