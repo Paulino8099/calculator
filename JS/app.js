@@ -152,6 +152,28 @@ function separateNumber() {
 };
 
 /**
+ * ?reduciendo "fontSize" del "inputValue"...
+ */
+// reduciendo  eltamaño del input al pasar la cantidad de 11 digítos escritos
+function reductionFont() {
+    /**
+     * !reduciendo fuente "inputValue"
+     */
+    if (inputValue.value.length > 11) {
+        inputValue.classList.add('reductionFont');
+    } else {
+        inputValue.classList.remove('reductionFont');
+    }
+    /**
+     * !reduciendo fuente del "inputEqual"
+     */
+    if (inputValue.value.length > 11) {
+        inputEqual.classList.add('reductionFont');
+    } else {
+        inputEqual.classList.remove('reductionFont');
+    };
+};
+/**
  * ?limite de operadores...
  */
 // función para limitar el número de operadores para que así no se repita mas de 2 o de tres operadores en una misma secuencia ejemplo: ++,--,***,///
@@ -373,6 +395,7 @@ function setResult() {
             };
 
             separateNumber();
+            reductionFont();
             sound();
             vibration();
         });
@@ -401,6 +424,7 @@ function resultBig() {
             }, 200);
 
             localStorage.setItem('equal', 1);
+            reductionFont();
         };
     });
 };
@@ -642,7 +666,7 @@ function btnMute() {
         onOffSound();
     });
 
-        // si localStorage es igual a 1 se desactivará el sonido
+    // si localStorage es igual a 1 se desactivará el sonido
     onOffSound();
     function onOffSound() {
         if (localStorage.getItem('sound') == 1) {
@@ -698,6 +722,6 @@ function btnVibrate() {
  */
 function vibration() {
     if (localStorage.getItem('vibration') == 1) {
-        navigator.vibrate(10)
+        navigator.vibrate(50);
     };
 };

@@ -184,7 +184,7 @@ body {
 					text-align: end;
 					border: none;
 					width: 95%;
-					height: 90%;
+					height: 35px;
 					place-self: center;
 					border-radius: 10px;
 					margin-right: 5px;
@@ -192,6 +192,11 @@ body {
 					&:focus {
 						border: none;
 						outline: none;
+					}
+				}
+				.input-value-calculator {
+					&.reductionFont {
+						font-size: calc(1em + 2vw);
 					}
 				}
 				.input-result-calculator {
@@ -205,7 +210,7 @@ body {
 					place-self: flex-end;
 					margin: 0;
 					pointer-events: none;
-					font-size: calc(1em + 2vw);
+					font-size: calc(1em + 1.5vw);
 					padding-right: 10px;
 					&.active {
 						width: 100%;
@@ -221,6 +226,9 @@ body {
 								background: #d0e6e4;
 							}
 						}
+					}
+					&.reductionFont {
+						font-size: calc(1.2em + 1vw);
 					}
 				}
 				.clean {
