@@ -696,9 +696,7 @@ function btnVibrate() {
  * ?vibración al pulsar teclas...
  */
 function vibration() {
-    if (localStorage.getItem('vabration') == 1) {
-        let btnVibration = document.querySelector('-btn-vibration');
-
+    if (localStorage.getItem('vibration') == 1) {
         navigator.vibrate(100)
     };
 };
