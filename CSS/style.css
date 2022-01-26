@@ -102,8 +102,8 @@ body .calculator .content-calculator .btn-setting:active {
 
 body .calculator .content-calculator .setting-container {
   position: absolute;
-  width: 100%;
-  height: 100%;
+  width: 0%;
+  height: 0%;
   -webkit-backdrop-filter: blur(25px);
           backdrop-filter: blur(25px);
   top: 0;
@@ -112,6 +112,7 @@ body .calculator .content-calculator .setting-container {
   border-radius: 15px;
   -webkit-transition: .5s ease;
   transition: .5s ease;
+  overflow: hidden;
   display: -ms-grid;
   display: grid;
 }
@@ -121,13 +122,25 @@ body .calculator .content-calculator .setting-container.active {
   height: 100%;
 }
 
+body .calculator .content-calculator .setting-container.active .title-setting {
+  width: 80%;
+  font-size: calc(1em * 2vw);
+}
+
+body .calculator .content-calculator .setting-container.active .setting-content svg {
+  width: 60px;
+  height: 25px;
+}
+
 body .calculator .content-calculator .setting-container .title-setting {
   background: #fff;
-  width: 80%;
+  width: 0%;
   place-self: center;
   text-align: center;
   border-radius: 50px;
   color: var(--color_darkBlack);
+  -webkit-transition: .5s;
+  transition: .5s;
 }
 
 body .calculator .content-calculator .setting-container .setting-content {
@@ -135,6 +148,8 @@ body .calculator .content-calculator .setting-container .setting-content {
       justify-self: center;
   width: 80%;
   height: 100%;
+  -webkit-transition: .5s;
+  transition: .5s;
   display: -ms-grid;
   display: grid;
   -ms-grid-columns: (auto)[6];
@@ -143,8 +158,8 @@ body .calculator .content-calculator .setting-container .setting-content {
 
 body .calculator .content-calculator .setting-container .setting-content svg {
   cursor: pointer;
-  width: 60px;
-  height: 25px;
+  width: 0;
+  height: 0;
   border-radius: 50px;
   fill: #fff;
   padding: 10px;
@@ -182,6 +197,8 @@ body .calculator .content-calculator .setting-container .setting-content .btn-mu
   -ms-grid-row: 1;
   -ms-grid-row-span: 1;
   grid-row: 1/2;
+  -webkit-transition: .5s;
+  transition: .5s;
 }
 
 body .calculator .content-calculator .setting-container .setting-content .btn-vibration {
@@ -191,6 +208,8 @@ body .calculator .content-calculator .setting-container .setting-content .btn-vi
   -ms-grid-row: 1;
   -ms-grid-row-span: 1;
   grid-row: 1/2;
+  -webkit-transition: .5s;
+  transition: .5s;
 }
 
 body .calculator .content-calculator label {
