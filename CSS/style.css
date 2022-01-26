@@ -84,8 +84,8 @@ body .calculator .content-calculator .btn-setting {
   cursor: pointer;
   position: absolute;
   right: 0;
-  top: -40px;
-  width: 40px;
+  top: -30px;
+  width: 30px;
   fill: #fff;
   border-radius: 50px;
 }
@@ -214,7 +214,7 @@ body .calculator .content-calculator .setting-container .setting-content .btn-vi
 
 body .calculator .content-calculator label {
   width: 95%;
-  height: 125px;
+  height: 75px;
   place-self: center;
   background: var(--color_darkGreen);
   border-radius: 10px;
@@ -246,7 +246,6 @@ body .calculator .content-calculator label input {
   border: none;
   width: 95%;
   place-self: center;
-  border-radius: 10px;
   margin-right: 5px;
   margin-left: 5px;
 }
@@ -254,10 +253,6 @@ body .calculator .content-calculator label input {
 body .calculator .content-calculator label input:focus {
   border: none;
   outline: none;
-}
-
-body .calculator .content-calculator label .input-value-calculator.reductionFont {
-  font-size: calc(1em + 2vw);
 }
 
 body .calculator .content-calculator label .input-result-calculator {
@@ -299,10 +294,6 @@ body .calculator .content-calculator label .input-equal-calculator.active {
   100% {
     background: #d0e6e4;
   }
-}
-
-body .calculator .content-calculator label .input-equal-calculator.reductionFont {
-  font-size: calc(1.2em + 1vw);
 }
 
 body .calculator .content-calculator label .clean {
@@ -657,19 +648,40 @@ body .calculator .content-calculator .ca {
   color: #909090;
 }
 
-@media screen and (max-width: 650px) {
+@media screen and (max-width: 750px) {
   body .calculator .content-calculator {
     width: 90%;
     height: 80%;
+  }
+  body .calculator .content-calculator .btn-setting {
+    top: -50px;
+    width: 50px;
+  }
+  body .calculator .content-calculator .btn-setting:hover {
+    opacity: .1;
+  }
+  body .calculator .content-calculator .btn-setting:active {
+    opacity: .8;
+    -webkit-box-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
+            box-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
+  }
+  body .calculator .content-calculator label {
+    height: 125px;
   }
   body .calculator .content-calculator label .input-result-calculator {
     font-size: calc(1em + 1vw);
   }
   body .calculator .content-calculator label .input-value-calculator {
-    font-size: calc(1em + 8vw);
+    font-size: calc(1em + 5vw);
+  }
+  body .calculator .content-calculator label .input-value-calculator.reductionFont {
+    font-size: calc(1em + 2vw);
   }
   body .calculator .content-calculator label .input-equal-calculator {
-    font-size: calc(1em + 10vw);
+    font-size: calc(1em + 5vw);
+  }
+  body .calculator .content-calculator label .input-equal-calculator.reductionFont {
+    font-size: calc(1em + 2vw);
   }
   body .calculator .content-calculator .btns {
     width: 95%;
@@ -677,6 +689,16 @@ body .calculator .content-calculator .ca {
   }
   body .calculator .content-calculator .btns span {
     font-size: calc(1em + 5vw);
+  }
+  body .calculator .content-calculator .container-colors {
+    width: 35px;
+    height: 35px;
+  }
+  body .calculator .content-calculator .container-colors span {
+    -webkit-transition: all 2s ease-in, all .3s ease-out;
+    transition: all 2s ease-in, all .3s ease-out;
+    width: 30px;
+    height: 30px;
   }
 }
 /*# sourceMappingURL=style.css.map */

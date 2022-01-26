@@ -64,8 +64,8 @@ body {
 				cursor: pointer;
 				position: absolute;
 				right: 0;
-				top: -40px;
-				width: 40px;
+				top: -30px;
+				width: 30px;
 				fill: #fff;
 				border-radius: 50px;
 				&:hover {
@@ -164,7 +164,7 @@ body {
 			// display
 			label {
 				width: 95%;
-				height: 125px;
+				height: 75px;
 				place-self: center;
 				background: var(--color_darkGreen);
 				border-radius: 10px;
@@ -185,17 +185,11 @@ body {
 					border: none;
 					width: 95%;
 					place-self: center;
-					border-radius: 10px;
 					margin-right: 5px;
 					margin-left: 5px;
 					&:focus {
 						border: none;
 						outline: none;
-					}
-				}
-				.input-value-calculator {
-					&.reductionFont {
-						font-size: calc(1em + 2vw);
 					}
 				}
 				.input-result-calculator {
@@ -226,9 +220,6 @@ body {
 							}
 						}
 					}
-					&.reductionFont {
-						font-size: calc(1.2em + 1vw);
-					}
 				}
 				.clean {
 					position: absolute;
@@ -242,25 +233,10 @@ body {
 					animation: none;
 					visibility: none;
 					z-index: 100;
-					// &::before {
-					// 	content: "";
-					// 	height: 250%;
-					// 	width: 15%;
-					// 	justify-self: center;
-					// 	top: -50px;
-					// 	position: absolute;
-					// 	transform: rotateZ(45deg);
-					// 	box-shadow: inset 0 0 5px #ffffff;
-					// 	backdrop-filter: blur(1px);
-					// 	opacity: 0;
-					// }
 					&.active {
 						animation: clean 1s ease-in-out;
 						backdrop-filter: blur(1px);
 						visibility: visible;
-						// &::before {
-						// 	opacity: 1;
-						// }
 					}
 					@keyframes clean {
 						50% {
@@ -467,22 +443,40 @@ body {
 	}
 }
 
-@media screen and (max-width: 650px) {
+@media screen and (max-width: 750px) {
 	body {
 		.calculator {
 			.content-calculator {
 				width: 90%;
 				height: 80%;
+				.btn-setting {
+					top: -50px;
+					width: 50px;
+					&:hover {
+						opacity: .1;
+					}
+					&:active {
+						opacity: .8;
+						box-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
+					}
+				}
 				// display
 				label {
+					height: 125px;
 					.input-result-calculator {
 						font-size: calc(1em + 1vw);
 					}
 					.input-value-calculator {
-						font-size: calc(1em + 8vw);
+						font-size: calc(1em + 5vw);
+						&.reductionFont {
+							font-size: calc(1em + 2vw);
+						}
 					}
 					.input-equal-calculator {
-						font-size: calc(1em + 10vw);
+						font-size: calc(1em + 5vw);
+						&.reductionFont {
+							font-size: calc(1em + 2vw);
+						}
 					}
 				}
 				// bottons
@@ -491,6 +485,16 @@ body {
 					height: 90%;
 					span {
 						font-size: calc(1em + 5vw);
+					}
+				}
+				// colors
+				.container-colors {
+					width: 35px;
+					height: 35px;
+					span {
+						transition: all 2s ease-in, all .3s ease-out;
+						width: 30px;
+						height: 30px;
 					}
 				}
 			}
