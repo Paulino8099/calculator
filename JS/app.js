@@ -10,7 +10,7 @@ let inputEqual = document.querySelector('.input-equal-calculator');
  * ?botones para los operadores
  */
 let btnMultiply = document.querySelector('.btn-multiply');
-let btnPorcentage = document.querySelector('.btn-porcentage');
+let btnpoint = document.querySelector('.btn-point');
 let btnDivide = document.querySelector('.btn-divide');
 let btnMinus = document.querySelector('.btn-minus');
 let btnMore = document.querySelector('.btn-more');
@@ -308,13 +308,13 @@ function setOperators() {
     };
 
     /**
-     * !añadiendo %
+     * !añadiendo .
      */
-    porcentage();
-    function porcentage() {
+    point();
+    function point() {
         // cada vez que se escuche un evento en el btn de multiplicar se ejecutará lo siguiente...
-        btnPorcentage.addEventListener('click', () => {
-            inputValue.value = inputValue.value + '%';
+        btnpoint.addEventListener('click', () => {
+            inputValue.value = inputValue.value + '.';
 
             sound();
             vibration();
@@ -424,7 +424,9 @@ function resultBig() {
             }, 200);
 
             localStorage.setItem('equal', 1);
+
             reductionFont();
+            vibration();
         };
     });
 };
@@ -472,6 +474,8 @@ function deleteOne() {
 
             cleanMagic();
         }
+
+        vibration();
     });
 }
 
@@ -510,6 +514,7 @@ function deleteAll() {
                 inputEqual.classList.remove('active');
             }, 500);
 
+            window.navigator.vibrate(25)
             cleanMagic();
         };
     });
@@ -727,7 +732,7 @@ function btnVibrate() {
         onOffvibration();
     });
 
-    // si localStorage es igual a 1 se desactivará el sonido
+    // si localStorage es igual a 1 se activará el sonido de lo contrario se desactivará
     onOffvibration();
     function onOffvibration() {
         if (localStorage.getItem('vibration') == 1) {
@@ -740,10 +745,10 @@ function btnVibrate() {
 
 /**
  * ?vibración al pulsar teclas...
- * todo crear configuraciones para poder modular o regular la fuerza de vibración mediante la configuración
+ * todo: crear configuraciones para poder modular o regular la fuerza de vibración mediante la configuración
  */
 function vibration() {
     if (localStorage.getItem('vibration') == 1) {
-        window.navigator.vibrate(25);
+        window.navigator.vibrate(15);
     };
 };

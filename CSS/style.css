@@ -66,8 +66,8 @@ body .calculator .content-calculator {
   height: 85%;
   place-self: center;
   background: var(--color_changed);
-  -webkit-box-shadow: 0 0 10px #ffffff40, inset 0 5px 5px #00000040, inset 0 -5px 5px #00000040;
-          box-shadow: 0 0 10px #ffffff40, inset 0 5px 5px #00000040, inset 0 -5px 5px #00000040;
+  -webkit-box-shadow: 0 0 10px #ffffff40, inset 0 5px 5px #00000040, inset 0 -5px 5px #00000040, inset 5px 0 5px #00000040, inset -5px 0 5px #00000040;
+          box-shadow: 0 0 10px #ffffff40, inset 0 5px 5px #00000040, inset 0 -5px 5px #00000040, inset 5px 0 5px #00000040, inset -5px 0 5px #00000040;
   padding: 10px;
   position: relative;
   -webkit-transition: .5s ease;
@@ -84,8 +84,8 @@ body .calculator .content-calculator .btn-setting {
   cursor: pointer;
   position: absolute;
   right: 0;
-  top: -25px;
-  width: 25px;
+  top: -40px;
+  width: 40px;
   fill: #fff;
   border-radius: 50px;
 }
@@ -437,7 +437,7 @@ body .calculator .content-calculator .btns .btn-delete {
   grid-row: 1/2;
 }
 
-body .calculator .content-calculator .btns .btn-porcentage {
+body .calculator .content-calculator .btns .btn-point {
   -ms-grid-column: 4;
   -ms-grid-column-span: 1;
   grid-column: 4/5;
@@ -573,6 +573,7 @@ body .calculator .content-calculator .btns .btn-equal {
 }
 
 body .calculator .content-calculator .btns .btn-more {
+  background: #1abc9c;
   -ms-grid-column: 4;
   -ms-grid-column-span: 1;
   grid-column: 4/5;

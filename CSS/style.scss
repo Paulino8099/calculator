@@ -51,7 +51,8 @@ body {
 			height: 85%;
 			place-self: center;
 			background: var(--color_changed);
-			box-shadow: 0 0 10px #ffffff40, inset 0 5px 5px #00000040, inset 0 -5px 5px #00000040;
+			box-shadow: 0 0 10px #ffffff40, inset 0 5px 5px #00000040, inset 0 -5px 5px #00000040,
+				inset 5px 0 5px #00000040, inset -5px 0 5px #00000040;
 			padding: 10px;
 			position: relative;
 			transition: .5s ease;
@@ -59,13 +60,12 @@ body {
 			display: grid;
 			grid-template-columns: repeat(6, auto);
 			grid-template-rows: repeat(6, auto);
-
 			.btn-setting {
 				cursor: pointer;
 				position: absolute;
 				right: 0;
-				top: -25px;
-				width: 25px;
+				top: -40px;
+				width: 40px;
 				fill: #fff;
 				border-radius: 50px;
 				&:hover {
@@ -336,7 +336,7 @@ body {
 					grid-column: 3/4;
 					grid-row: 1/2;
 				}
-				.btn-porcentage {
+				.btn-point {
 					grid-column: 4/5;
 					grid-row: 1/2;
 				}
@@ -401,6 +401,8 @@ body {
 					grid-row: 5/6;
 				}
 				.btn-more {
+					background: #1abc9c;
+
 					grid-column: 4/5;
 					grid-row: 5/6;
 				}
