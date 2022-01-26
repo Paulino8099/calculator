@@ -214,7 +214,7 @@ body .calculator .content-calculator .setting-container .setting-content .btn-vi
 
 body .calculator .content-calculator label {
   width: 95%;
-  height: 90%;
+  height: 125px;
   place-self: center;
   background: var(--color_darkGreen);
   border-radius: 10px;
@@ -245,7 +245,6 @@ body .calculator .content-calculator label input {
   text-align: end;
   border: none;
   width: 95%;
-  height: 35px;
   place-self: center;
   border-radius: 10px;
   margin-right: 5px;
