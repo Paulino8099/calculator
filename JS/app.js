@@ -278,9 +278,10 @@ function setOperators() {
     function multiply() {
         // cada vez que se escuche un evento en el btn de multiplicar se ejecutará lo siguiente...
         btnMultiply.addEventListener('click', () => {
-            inputValue.value = inputValue.value + '*';
+            inputValue.value = inputValue.value + 'X';
 
-            navigator.vibrate(1000);
+            sound();
+            vibration();
         });
     };
 
@@ -292,6 +293,9 @@ function setOperators() {
         // cada vez que se escuche un evento en el btn de multiplicar se ejecutará lo siguiente...
         btnPorcentage.addEventListener('click', () => {
             inputValue.value = inputValue.value + '%';
+
+            sound();
+            vibration();
         });
     };
 
@@ -303,6 +307,9 @@ function setOperators() {
         // cada vez que se escuche un evento en el btn de "Dividir" se ejecutará lo siguiente...
         btnDivide.addEventListener('click', () => {
             inputValue.value = inputValue.value + '/';
+
+            sound();
+            vibration();
         });
     };
 
@@ -314,6 +321,9 @@ function setOperators() {
         // cada vez que se escuche un evento en el btn de "restar" se ejecutará lo siguiente...
         btnMinus.addEventListener('click', () => {
             inputValue.value = inputValue.value + '-';
+
+            sound();
+            vibration();
         });
     };
 
@@ -325,6 +335,9 @@ function setOperators() {
         // cada vez que se escuche un evento en el btn de "sumar" se ejecutará lo siguiente...
         btnMore.addEventListener('click', () => {
             inputValue.value = inputValue.value + '+';
+
+            sound();
+            vibration();
         });
     };
 };
@@ -339,8 +352,8 @@ function setResult() {
     let allBtns = document.querySelectorAll('.btn');
 
     // mostrando resultado en el input "inputResult" al dar click en cualquier btn exepto en el btn de igualdad, btn de borrar un dígito y btn de limpiar la pantalla
-    allBtns.forEach((allBtns1) => {
-        allBtns1.addEventListener('click', function () {
+    allBtns.forEach((e) => {
+        e.addEventListener('click', function () {
             // sentencia if para obligar a que el input de entrada de valores tenga que estar con algún tipo de dato para que no de ningún error al hacer cálculos
             if (inputValue.value != '') {
                 inputResult.value = eval(inputValue.value);
@@ -360,6 +373,8 @@ function setResult() {
             };
 
             separateNumber();
+            sound();
+            vibration();
         });
     });
 };
@@ -457,9 +472,9 @@ function deleteAll() {
 // ========================================================================================================
 
 /**
- * !settings colors app
- * !settings colors app 
- * !settings colors app
+ * !setting colors app
+ * !setting colors app 
+ * !setting colors app
  */
 settingsColors();
 function settingsColors() {
@@ -558,35 +573,132 @@ function settingsColors() {
         color()
         function color() {
             if (localStorage.getItem('color_calculator') == 'RebeccaPurple') {
-                document.documentElement.style.setProperty('--color_darkGray', '#663399');
+                document.documentElement.style.setProperty('--color_changed', '#663399');
             }
             if (localStorage.getItem('color_calculator') == 'LimeGreen') {
-                document.documentElement.style.setProperty('--color_darkGray', '#32cd32');
+                document.documentElement.style.setProperty('--color_changed', '#32cd32');
             }
             if (localStorage.getItem('color_calculator') == 'MediumSpringGreen') {
-                document.documentElement.style.setProperty('--color_darkGray', '#00fa9a');
+                document.documentElement.style.setProperty('--color_changed', '#00fa9a');
             }
             if (localStorage.getItem('color_calculator') == 'LightSeaGreen') {
-                document.documentElement.style.setProperty('--color_darkGray', '#20b2aa');
+                document.documentElement.style.setProperty('--color_changed', '#20b2aa');
             }
             if (localStorage.getItem('color_calculator') == 'Yellow') {
-                document.documentElement.style.setProperty('--color_darkGray', '#fafa41');
+                document.documentElement.style.setProperty('--color_changed', '#fafa41');
             }
             if (localStorage.getItem('color_calculator') == 'DarkGray') {
-                document.documentElement.style.setProperty('--color_darkGray', '#909090');
+                document.documentElement.style.setProperty('--color_changed', '#909090');
             }
             if (localStorage.getItem('color_calculator') == 'DarkSlateGray') {
-                document.documentElement.style.setProperty('--color_darkGray', '#305050');
+                document.documentElement.style.setProperty('--color_changed', '#305050');
             }
             if (localStorage.getItem('color_calculator') == 'Crimson') {
-                document.documentElement.style.setProperty('--color_darkGray', '#dc143c');
+                document.documentElement.style.setProperty('--color_changed', '#dc143c');
             }
             if (localStorage.getItem('color_calculator') == 'DeepPink') {
-                document.documentElement.style.setProperty('--color_darkGray', '#ff1493');
+                document.documentElement.style.setProperty('--color_changed', '#ff1493');
             }
             if (localStorage.getItem('color_calculator') == 'Tomato') {
-                document.documentElement.style.setProperty('--color_darkGray', '#ff6347');
+                document.documentElement.style.setProperty('--color_changed', '#ff6347');
             }
         }
     }
 }
+
+// ========================================================================================================
+
+/**
+ * !settings app
+ * !settings app
+ * !settings app
+ */
+let btnConfig = document.querySelector('.btn-setting');
+let settingContainer = document.querySelector('.setting-container');
+
+/**
+ * ?abriendo configuraciones...
+ */
+btnConfig.addEventListener('click', function () {
+    settingContainer.classList.toggle('active');
+});
+
+/**
+ * ?activando/desactivando sonidos...
+ */
+// activando vibración al dar click en btn de sonidos dentro de los ajustes
+btnMute();
+function btnMute() {
+    let btnMute = document.querySelector('.btn-mute');
+
+    btnMute.addEventListener('click', function () {
+        // si en "localStorage" hay 1 se cambiará a 0 y si hay 0 se cambiará a 1
+        if (localStorage.getItem('sound') === null || localStorage.getItem('sound') == 0) {
+            localStorage.setItem('sound', 1);
+        } else if (localStorage.getItem('sound') == 1) {
+            localStorage.setItem('sound', 0);
+        };
+
+        onOffSound();
+    });
+
+        // si localStorage es igual a 1 se desactivará el sonido
+    onOffSound();
+    function onOffSound() {
+        if (localStorage.getItem('sound') == 1) {
+            btnMute.classList.add('active');
+        } else {
+            btnMute.classList.remove('active');
+        }
+    }
+};
+
+/**
+ * ?sonido al pulsar teclas...
+ */
+function sound() {
+    if (localStorage.getItem('sound') == 1) {
+        document.querySelector('.tono').innerHTML = '<audio class="tono" src="AUDIOS/AAAmp3.mp3" autoplay></audio>'
+    };
+};
+
+/**
+ * ?activando/desactivando vibración
+ */
+btnVibrate();
+function btnVibrate() {
+
+    let btnVibration = document.querySelector('.btn-vibration');
+
+    btnVibration.addEventListener('click', function () {
+        // si en "localStorage" hay 1 se cambiará a 0 y si hay 0 se cambiará a 1
+        if (localStorage.getItem('vibration') === null || localStorage.getItem('vibration') == 0) {
+            localStorage.setItem('vibration', 1);
+        } else if (localStorage.getItem('vibration') == 1) {
+            localStorage.setItem('vibration', 0);
+        };
+
+        onOffvibration();
+    });
+
+    // si localStorage es igual a 1 se desactivará el sonido
+    onOffvibration();
+    function onOffvibration() {
+        if (localStorage.getItem('vibration') == 1) {
+            btnVibration.classList.add('active');
+        } else {
+            btnVibration.classList.remove('active');
+        }
+    }
+};
+
+/**
+ * ?vibración al pulsar teclas...
+ */
+function vibration() {
+    if (localStorage.getItem('vabration') == 1) {
+        let btnVibration = document.querySelector('-btn-vibration');
+
+        navigator.vibrate(100)
+    };
+};

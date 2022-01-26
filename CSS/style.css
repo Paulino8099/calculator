@@ -1,6 +1,6 @@
 :root {
   --color_darkGreen: #d0e6e4;
-  --color_darkGray: #909090;
+  --color_changed: #909090;
   --color_white: #ffffff;
   --color_black: #000000;
   --color_darkBlack: #474747;
@@ -33,7 +33,7 @@ svg {
 }
 
 body {
-  background: var(--color_darkGray);
+  background: var(--color_changed);
   -webkit-transition: .5s ease;
   transition: .5s ease;
 }
@@ -65,7 +65,7 @@ body .calculator .content-calculator {
   width: 40%;
   height: 85%;
   place-self: center;
-  background: var(--color_darkGray);
+  background: var(--color_changed);
   -webkit-box-shadow: 0 0 10px #ffffff40, inset 0 5px 5px #00000040, inset 0 -5px 5px #00000040;
           box-shadow: 0 0 10px #ffffff40, inset 0 5px 5px #00000040, inset 0 -5px 5px #00000040;
   padding: 10px;
@@ -78,6 +78,119 @@ body .calculator .content-calculator {
       grid-template-columns: repeat(6, auto);
   -ms-grid-rows: (auto)[6];
       grid-template-rows: repeat(6, auto);
+}
+
+body .calculator .content-calculator .btn-setting {
+  cursor: pointer;
+  position: absolute;
+  right: 0;
+  top: -25px;
+  width: 25px;
+  fill: #fff;
+  border-radius: 50px;
+}
+
+body .calculator .content-calculator .btn-setting:hover {
+  opacity: .8;
+}
+
+body .calculator .content-calculator .btn-setting:active {
+  opacity: 1;
+  -webkit-box-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
+          box-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
+}
+
+body .calculator .content-calculator .setting-container {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backdrop-filter: blur(25px);
+          backdrop-filter: blur(25px);
+  top: 0;
+  right: 0;
+  z-index: 200;
+  border-radius: 15px;
+  -webkit-transition: .5s ease;
+  transition: .5s ease;
+  display: -ms-grid;
+  display: grid;
+}
+
+body .calculator .content-calculator .setting-container.active {
+  width: 100%;
+  height: 100%;
+}
+
+body .calculator .content-calculator .setting-container .title-setting {
+  background: #fff;
+  width: 80%;
+  place-self: center;
+  text-align: center;
+  border-radius: 50px;
+  color: var(--color_darkBlack);
+}
+
+body .calculator .content-calculator .setting-container .setting-content {
+  -ms-grid-column-align: center;
+      justify-self: center;
+  width: 80%;
+  height: 100%;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (auto)[6];
+      grid-template-columns: repeat(6, auto);
+}
+
+body .calculator .content-calculator .setting-container .setting-content svg {
+  cursor: pointer;
+  width: 60px;
+  height: 25px;
+  border-radius: 50px;
+  fill: #fff;
+  padding: 10px;
+  -webkit-backdrop-filter: blur(10px);
+          backdrop-filter: blur(10px);
+  background: var(--color_changed);
+  outline: 2px solid #fff;
+  -webkit-transition: .1s;
+  transition: .1s;
+}
+
+body .calculator .content-calculator .setting-container .setting-content svg:hover {
+  opacity: .8;
+  -webkit-box-shadow: 0 0 5px #000;
+          box-shadow: 0 0 5px #000;
+}
+
+body .calculator .content-calculator .setting-container .setting-content svg:active {
+  opacity: 1;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+}
+
+body .calculator .content-calculator .setting-container .setting-content svg.active {
+  outline: none;
+  fill: #404040;
+  background: #fff;
+  border: #404040;
+}
+
+body .calculator .content-calculator .setting-container .setting-content .btn-mute {
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 1;
+  grid-column: 1/2;
+  -ms-grid-row: 1;
+  -ms-grid-row-span: 1;
+  grid-row: 1/2;
+}
+
+body .calculator .content-calculator .setting-container .setting-content .btn-vibration {
+  -ms-grid-column: 2;
+  -ms-grid-column-span: 1;
+  grid-column: 2/3;
+  -ms-grid-row: 1;
+  -ms-grid-row-span: 1;
+  grid-row: 1/2;
 }
 
 body .calculator .content-calculator label {
@@ -150,7 +263,7 @@ body .calculator .content-calculator label .input-equal-calculator.active {
 
 @-webkit-keyframes cambio {
   0% {
-    background: var(--color_darkGray);
+    background: var(--color_changed);
   }
   100% {
     background: #d0e6e4;
@@ -159,7 +272,7 @@ body .calculator .content-calculator label .input-equal-calculator.active {
 
 @keyframes cambio {
   0% {
-    background: var(--color_darkGray);
+    background: var(--color_changed);
   }
   100% {
     background: #d0e6e4;
@@ -191,7 +304,7 @@ body .calculator .content-calculator label .clean.active {
 
 @-webkit-keyframes clean {
   50% {
-    background: var(--color_darkGray);
+    background: var(--color_changed);
   }
   100% {
     right: 100%;
@@ -201,7 +314,7 @@ body .calculator .content-calculator label .clean.active {
 
 @keyframes clean {
   50% {
-    background: var(--color_darkGray);
+    background: var(--color_changed);
   }
   100% {
     right: 100%;
