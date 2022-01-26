@@ -663,7 +663,7 @@ function sound() {
 };
 
 /**
- * ?activando/desactivando vibración
+ * ?activando/desactivando vibración...
  */
 btnVibrate();
 function btnVibrate() {
@@ -694,9 +694,10 @@ function btnVibrate() {
 
 /**
  * ?vibración al pulsar teclas...
+ * todo crear configuraciones para poder modular o regular la fuerza de vibración mediante la configuración
  */
 function vibration() {
     if (localStorage.getItem('vibration') == 1) {
-        navigator.vibrate(100)
+        navigator.vibrate(10)
     };
 };
