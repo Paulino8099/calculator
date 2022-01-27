@@ -261,6 +261,7 @@ body .calculator .content-calculator label .input-result-calculator {
 }
 
 body .calculator .content-calculator label .input-equal-calculator {
+  border-radius: 10px;
   position: absolute;
   width: 0%;
   height: 0%;
